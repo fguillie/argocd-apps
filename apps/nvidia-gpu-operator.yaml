@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nvidia-gpu-operator
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://helm.ngc.nvidia.com/nvidia
+    chart: gpu-operator
+    targetRevision: v26.3.2
+    helm:
+      releaseName: gpu-operator
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: gpu-operator
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true
+      - SkipDryRunOnMissingResource=true
