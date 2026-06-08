@@ -40,7 +40,8 @@ kubectl apply -n argocd \
 
 Use server-side apply for the Argo CD install because the upstream
 `applicationsets.argoproj.io` CRD can exceed the client-side apply annotation
-limit.
+limit. This is distinct from Argo CD's `ServerSideApply=true` sync option,
+which is not currently set on the child apps in this repository.
 
 ## Application Ordering
 
