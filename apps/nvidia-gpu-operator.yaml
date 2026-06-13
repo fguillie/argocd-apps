@@ -13,6 +13,9 @@ spec:
     targetRevision: v26.3.2
     helm:
       releaseName: gpu-operator
+      parameters:
+        - name: cdi.nriPluginEnabled
+          value: "true"
   destination:
     server: https://kubernetes.default.svc
     namespace: gpu-operator
