@@ -108,6 +108,8 @@ long-running Pod. The pod should be `Running` and `Ready`.
 ## Operational Notes
 
 - Keep chart versions pinned. Current GPU Operator chart: `v26.3.2`.
+- The GPU Operator app enables the CDI NRI plugin with Helm parameter
+  `cdi.nriPluginEnabled=true` in `apps/nvidia-gpu-operator.yaml`.
 - Keep workload image tags pinned. Current PyTorch image:
   `nvcr.io/nvidia/pytorch:26.04-py3`.
 - Prefer changes through Git and Argo CD. Avoid manual changes to managed
